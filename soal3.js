@@ -6,19 +6,17 @@ Fungsi tersebut akan mencari data didalam dataArray yang
 memiliki nilai diantara nilaiAwal dan nilaiAkhir, mengurutkan
 hasil pencarian dan menampilkannya ke layar/console.*/
 
-const seleksiNilai = (awal, akhir, array) => {
+const seleksiNilai = (nilaiAwal, nilaiAkhir, array) => {
   let hasil = [];
 
   array.sort((a, b) => a - b);
-  if (awal > akhir) {
-    console.log("Nilai akhir harus lebih besar dari nilai awal");
-  }
-
-  if (array.length < 5) {
-    console.log("Array harus lebih dari 5");
+  if (nilaiAwal > nilaiAkhir) {
+    hasil = "Nilai akhir harus lebih besar dari nilai awal";
+  } else if (array.length < 5) {
+    hasil = "Array harus lebih dari 5";
   } else {
-    for (let i = 0; i <= akhir; i++) {
-      if (array[i] >= awal && array[i] <= akhir) {
+    for (let i = 0; i <= nilaiAkhir; i++) {
+      if (array[i] >= nilaiAwal && array[i] <= nilaiAkhir) {
         hasil.push(array[i]);
       }
     }
@@ -29,4 +27,7 @@ const seleksiNilai = (awal, akhir, array) => {
   console.log(hasil);
 };
 
-seleksiNilai(1, 22, [1, 4, 6, 23, 19]);
+seleksiNilai(3, 22, [1, 4, 6, 19, 18]);
+seleksiNilai(71, 22, [2, 65, 6, 4, 19, 18]);
+seleksiNilai(1, 10, [2, 65, 6, 4]);
+seleksiNilai(18, 22, [2, 8, 6, 4, 10, 23]);

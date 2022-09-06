@@ -32,11 +32,15 @@ const name = [
   "Penelope",
 ];
 
-function filterItems(arr, query, lim) {
-  const a = arr.filter((el) => el.toLowerCase().includes(query.toLowerCase()));
-  let b = lim;
+const userInput = (query, num, callback) => {
+  const res = name.filter((cariNama) =>
+    cariNama.toLowerCase().includes(query.toLowerCase())
+  );
+  return callback(res, num);
+};
 
-  return console.log(a.slice(0, b));
-}
+const hasil = (res, num) => {
+  console.log(res.slice(0, num));
+};
 
-filterItems(name, "el", 3);
+userInput("an", 3, hasil);
